@@ -1,10 +1,18 @@
 #!/bin/bash
 
-mkdir -p ~/.local/{bin,share}
-mkdir -p ~/.local/share/custom
+LOCAL="~/.local"
+LOCAL_BIN="$LOCAL/bin"
+LOCAL_SHARE="$LOCAL/share"
+LOCAL_CUSTOM="$LOCAL_SHARE/custom"
 
-cp scripts/database-backup.sh ~/.local/share/custom/
-chmod u+x ~/.local/share/custom/database-backup.sh
-cd ~/.local/bin/
-ln -s ../share/custom/database-backup.sh database-backup
+# Create local directories
+mkdir -p $LOCAL_BIN
+mkdir -p $LOCAL_SHARE
+mkdir -p $LOCAL_CUSTOM
+
+# Setup scripts
+cp scripts/database-backup.sh $LOCAL_CUSTOM
+chmod u+x $LOCAL_CUSTOM/database-backup.sh
+# cd $LOCAL_BIN
+ln -s $LOCAL_CUSTOM/database-backup.sh $LOCAL_BIN/database-backup
 
