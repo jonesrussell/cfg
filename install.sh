@@ -1,18 +1,34 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-LOCAL="~/.local"
-LOCAL_BIN="$LOCAL/bin"
-LOCAL_SHARE="$LOCAL/share"
-LOCAL_CUSTOM="$LOCAL_SHARE/custom"
+# Full path of this script
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" >/dev/null 2>&1 && pwd  )"
+# echo ${SCRIPT_DIR}
+
+# Define user's local directories
+export LOCAL="${HOME}/.local"
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+INSTALL_SCRIPTS="scripts/install"
+USER_SCRIPTS="scripts/user"
 
 # Create local directories
-mkdir -p $LOCAL_BIN
-mkdir -p $LOCAL_SHARE
-mkdir -p $LOCAL_CUSTOM
+mkdir -p ${LOCAL}
+mkdir -p ${LOCAL_BIN}
+mkdir -p ${LOCAL_SHARE}
+mkdir -p ${LOCAL_CUSTOM}
 
-# Setup scripts
-cp scripts/database-backup.sh $LOCAL_CUSTOM
-chmod u+x $LOCAL_CUSTOM/database-backup.sh
-# cd $LOCAL_BIN
-ln -s $LOCAL_CUSTOM/database-backup.sh $LOCAL_BIN/database-backup
+# Run software install scripts
+bash ${INSTALL_SCRIPTS}/drush.sh
+
+# Setup user scripts
+ORIG_FILE="${USER_SCRIPTS}/database-backup.sh"
+TARGET_FILE="${LOCAL_CUSTOM}/database-backup.sh"
+TARGET_LINK="${LOCAL_BIN}/database-backup"
+if [ ! -f "${TARGET_FILE}"  ]; then
+    cp ${ORIG_FILE} ${TARGET_FILE}
+    chmod u+x ${TARGET_FILE}
+    ln -s ${TARGET_FILE} ${TARGET_LINK}
+fi
 
