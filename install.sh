@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 # Full path of this script
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" >/dev/null 2>&1 && pwd  )"
-# echo ${SCRIPT_DIR}
+# SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" >/dev/null 2>&1 && pwd  )"
 
 # Define user's local directories
 export LOCAL="${HOME}/.local"
