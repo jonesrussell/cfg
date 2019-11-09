@@ -26,6 +26,17 @@ DIR_USB_80="/mnt/${SERVER}/usb-80"
 DIR_USB_500="/mnt/${SERVER}/usb-500"
 DIR_MEDIA="/mnt/${SERVER}/media"
 
+# Ensure mount points exist
+sudo mkdir -p "${DIR_DEV}"
+sudo mkdir -p "${DIR_USB_80}"
+sudo mkdir -p "${DIR_USB_500}"
+sudo mkdir -p "${DIR_MEDIA}"
+
+sudo chown "${USERNAME}" "${DIR_DEV}"
+sudo chown "${USERNAME}" "${DIR_USB_80}"
+sudo chown "${USERNAME}" "${DIR_USB_500}"
+sudo chown "${USERNAME}" "${DIR_MEDIA}"
+
 sshfs "${USERNAME}@${SERVER}:${SHARE_DEV}" "${DIR_DEV}"
 echo "${SERVER}:${SHARE_DEV} -> ${DIR_DEV}"
 
