@@ -1,31 +1,41 @@
-# My Linux Environment Setup
+# Welcome to home-directory 👋
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Twitter: jonesrussell42](https://img.shields.io/twitter/follow/jonesrussell42.svg?style=social)](https://twitter.com/jonesrussell42)
 
-**@WIP (Work In Progress)**
+> Setup a new Ubuntu system's software and home directory.
 
-## Overview
-
-This repository contains an install script which will install software such as oh-my-zsh, vim, VS Code, etc, and my customized configuration files.
-
-## Stack
-
-* OS: XUbuntu 18.04
-* Shell: ZSH with Oh-My-ZSH
-* Terminal: xfce4-terminal & [Terminator](https://gnometerminator.blogspot.com/)
-* Docker
+### 🏠 [Homepage](https://github.com/jonesrussell/home-directory)
 
 ## Install
 
-```
-git clone https://github.com/jonesrussell/home-directory.git ~/.home-directory
-cd ~/.home-directory
-./install.sh
+```sh
+bash install.sh
 ```
 
-## Update
+## Author
 
-```
-cd ~/.home-directory
-git pull
-./install.sh
-```
+👤 **Russell Jones**
 
+* Website: https://www.russelljones.ca
+* Twitter: [@jonesrussell42](https://twitter.com/jonesrussell42)
+* Github: [@jonesrussell](https://github.com/jonesrussell)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check [issues page](https://github.com/jonesrussell/home-directory/issues).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+
+## 📝 License
+
+Copyright © 2019 [Russell Jones](https://github.com/jonesrussell).
+
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
