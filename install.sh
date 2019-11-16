@@ -1,7 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Full path of this script
 # SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" >/dev/null 2>&1 && pwd  )"
+
+# Ensure running with sudo
+if [ "${SUDO_USER}" = "" ]; then
+	echo "Must be run with sudo."
+	exit 1
+fi
 
 # Define user's local directories
 export LOCAL="${HOME}/.local"
@@ -9,17 +15,18 @@ export LOCAL_BIN="${LOCAL}/bin"
 export LOCAL_SHARE="${LOCAL}/share"
 export LOCAL_CUSTOM="${LOCAL_SHARE}/custom"
 
-INSTALL_SCRIPTS="scripts/install"
-USER_SCRIPTS="scripts/user"
-
 # Create local directories
 mkdir -p ${LOCAL}
 mkdir -p ${LOCAL_BIN}
 mkdir -p ${LOCAL_SHARE}
 mkdir -p ${LOCAL_CUSTOM}
 
+INSTALL_SCRIPTS="scripts/install"
+USER_SCRIPTS="scripts/user"
+
 # Run software install scripts
 bash ${INSTALL_SCRIPTS}/drush.sh
+bash ${INSTALL_SCRIPTS}/thefuck.sh
 
 # Setup user scripts
 ORIG_FILE="${USER_SCRIPTS}/database-backup.sh"
