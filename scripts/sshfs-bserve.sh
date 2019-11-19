@@ -26,28 +26,58 @@ DIR_USB_80="/mnt/${SERVER}/usb-80"
 DIR_USB_500="/mnt/${SERVER}/usb-500"
 DIR_MEDIA="/mnt/${SERVER}/media"
 
-# Ensure mount points exist
-sudo mkdir -p "${DIR_DEV}"
-sudo mkdir -p "${DIR_USB_80}"
-sudo mkdir -p "${DIR_USB_500}"
-sudo mkdir -p "${DIR_MEDIA}"
+if [ ! -d "${DIR_DEV}" ]; then
+	# Ensure mount points exist
+	sudo mkdir -p "${DIR_DEV}" \
+		"${DIR_USB_80}" \
+		"${DIR_USB_500}" \
+		"${DIR_MEDIA}"
 
-sudo chown "${USERNAME}" "${DIR_DEV}"
-sudo chown "${USERNAME}" "${DIR_USB_80}"
-sudo chown "${USERNAME}" "${DIR_USB_500}"
-sudo chown "${USERNAME}" "${DIR_MEDIA}"
+	# Set permission
+	sudo chown "${USERNAME}" "${DIR_DEV}" \
+		"${DIR_USB_80}" \
+		"${DIR_USB_500}" \
+		"${DIR_MEDIA}"
+fi
 
-sshfs "${USERNAME}@${SERVER}:${SHARE_DEV}" "${DIR_DEV}"
-echo "${SERVER}:${SHARE_DEV} -> ${DIR_DEV}"
+# TODO: Check if already mounted
+# foo
+if [ "$(ls -A ${DIR_DEV})" ]; then
+	echo "${DIR_DEV} is not empty, will not mount ssh://${SERVER}:${SHARE_DEV}"
+else
+	# TODO: sshfs error handling
+	sshfs "${USERNAME}@${SERVER}:${SHARE_DEV}" "${DIR_DEV}"
 
-sshfs "${USERNAME}@${SERVER}:${SHARE_USB_80}" "${DIR_USB_80}"
-echo "${SERVER}:${SHARE_USB_80} -> ${DIR_USB_80}"
+	echo "${DIR_DEV} -> ${SERVER}:${SHARE_DEV}"
+fi
 
-sshfs "${USERNAME}@${SERVER}:${SHARE_USB_500}" "${DIR_USB_500}"
-echo "${SERVER}:${SHARE_USB_500} -> ${DIR_USB_500}"
+# foo
+if [ "$(ls -A ${DIR_USB_80})" ]; then
+	echo "${DIR_USB_80} is not empty, will not mount ssh://${SERVER}:${SHARE_USB_80}"
+else
+	# TODO: sshfs error handling
+	sshfs "${USERNAME}@${SERVER}:${SHARE_USB_80}" "${DIR_USB_80}"
 
-sshfs "${USERNAME}@${SERVER}:${SHARE_MEDIA}" "${DIR_MEDIA}"
-echo "${SERVER}:${SHARE_MEDIA} -> ${DIR_MEDIA}"
+	echo "${DIR_USB_80} -> ${SERVER}:${SHARE_USB_80}"
+fi
+
+# foo
+if [ "$(ls -A ${DIR_USB_500})" ]; then
+	echo "${DIR_USB_500} is not empty, will not mount ssh://${SERVER}:${SHARE_USB_500}"
+else
+	# TODO: sshfs error handling
+	sshfs "${USERNAME}@${SERVER}:${SHARE_USB_500}" "${DIR_USB_500}"
+
+	echo "${DIR_USB_500} -> ${SERVER}:${SHARE_USB_500}" 
+fi
+
+if [ "$(ls -A ${DIR_MEDIA})" ]; then
+	echo "${DIR_MEDIA} is not empty, will not mount ssh://${SERVER}:${SHARE_MEDIA}"
+else
+	# TODO: sshfs error handling
+	sshfs "${USERNAME}@${SERVER}:${SHARE_MEDIA}" "${DIR_MEDIA}"
+	echo "${DIR_MEDIA} -> ${SERVER}:${SHARE_MEDIA}"
+fi
 
 echo ""
 
