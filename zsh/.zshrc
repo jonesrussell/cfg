@@ -1,8 +1,9 @@
-export JAVA_HOME=/usr/lib/jvm/jdk-12.0.2
+# export JAVA_HOME=/usr/lib/jvm/jdk-12.0.2
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/.local/bin:/usr/local/bin:$JAVA_HOME/bin:$PATH
+# export PATH=$HOME/.local/bin:/usr/local/bin:$JAVA_HOME/bin:$PATH
+export PATH="$(composer config -g home)/vendor/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/russell/.oh-my-zsh"
@@ -71,9 +72,12 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
+
+# Remove user name and device name from prompt
+# prompt_context() {} 
 
 # User configuration
 
@@ -102,15 +106,47 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias xclip="xclip -selection clipboard"
 
+# export MATTERMOST_TEAM_NAME=Skeet
+# export MATTERMOST_URL=127.0.0.1
+# export MATTERMOST_USERNAME=nightpatter
+# export MATTERMOST_PASSWORD=a9cgseuojbrrzg9r31m66o4j6e
+# export MATTERMOST_PORT="8065"
+
+# alias df="df -h"
+
+# Magnificent utility
+eval $(thefuck --alias)
+
+# Solarized Dark colors
+eval `dircolors ~/.dir_colors/dircolors`
+
+# export JAVA_HOME=/usr/lib/jvm/jre1.8.0_231
+export JAVA_HOME=/usr/lib/jvm/jdk-13.0.1
+export PATH=$JAVA_HOME/bin:$PATH
+
 # fnm
 export PATH=/home/russell/.fnm:$PATH
 eval "`fnm env --multi`"
 
-export MATTERMOST_TEAM_NAME=Skeet
-export MATTERMOST_URL=127.0.0.1
-export MATTERMOST_USERNAME=nightpatter
-export MATTERMOST_PASSWORD=a9cgseuojbrrzg9r31m66o4j6e
-export MATTERMOST_PORT="8065"
+alias tj="cd ~/Development/TechJones"
 
-# sshfs russell@bserve.galaxy.lan:Development/ /mnt/bserve.galaxy.lan/dev sshfs russell@bserve.galaxy.lan:/mnt/usb-80 /mnt/bserve.galaxy.lan/usb-80 sshfs russell@bserve.galaxy.lan:/srv/media /mnt/bserve.galaxy.lan/media
+##
+## Configuration for ~/.local/{bin,share} 
+##
+
+export LOCAL="$HOME/.local"
+export BIN="${LOCAL}/bin"
+export SHARE="${LOCAL}/share"
+
+# Custom scripts
+export CUSTOM="${SHARE}/custom"
+
+# Aliases
+alias loc="cd $LOCAL"
+alias locs="cd $SHARE"
+alias locsb="cd $BIN"
+alias locsc="cd $CUSTOM"
+
+# Enable syntax highlighting
+source "${HOME}/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 

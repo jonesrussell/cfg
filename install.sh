@@ -38,3 +38,13 @@ if [ ! -f "${TARGET_FILE}"  ]; then
     ln -s ${TARGET_FILE} ${TARGET_LINK}
 fi
 
+##
+## Install oh-my-zsh plugins
+##
+
+# Set the plugins directory
+ZSH_CUSTOM=${ZSH_CUSTOM:-$ZSH/custom}
+
+# Safe rm
+git clone --recursive --depth 1 https://github.com/mattmc3/zsh-safe-rm.git $ZSH_CUSTOM/zsh-safe-rm
+
