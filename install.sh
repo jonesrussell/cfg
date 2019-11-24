@@ -4,10 +4,10 @@
 # SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" >/dev/null 2>&1 && pwd  )"
 
 # Ensure running with sudo
-if [ "${SUDO_USER}" = "" ]; then
-	echo "Must be run with sudo."
-	exit 1
-fi
+#if [ "${SUDO_USER}" = "" ]; then
+#	echo "Must be run with sudo."
+#	exit 1
+#fi
 
 # Define user's local directories
 cat << EOF > "${HOME}/.env.home"
@@ -26,12 +26,13 @@ mkdir -p ${LOCAL_SHARE}
 mkdir -p ${LOCAL_CUSTOM}
 mkdir -p ${DEV}/Shell
 
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt install git php -y
+# sudo apt update -y
+# sudo apt upgrade -y
+# sudo apt install git php -y
 
 REPO="${DEV}/Shell/home-directory2"
 git clone https://github.com/jonesrussell/home-directory.git ${REPO}
+# sudo chown -R $USER:$USER $REPO
 
 INSTALL_SCRIPTS="${REPO}/scripts/install"
 # USER_SCRIPTS="${REPO}/scripts/user"
