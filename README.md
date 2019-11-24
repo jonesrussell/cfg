@@ -8,8 +8,8 @@
 
 ## Install
 
-```sh
-bash install.sh
+```bash
+wget -q https://raw.githubusercontent.com/jonesrussell/home-directory/master/install.sh -O- | sudo bash
 ```
 
 ## Author
