@@ -21,10 +21,17 @@ mkdir -p ${LOCAL_BIN}
 mkdir -p ${LOCAL_SHARE}
 mkdir -p ${LOCAL_CUSTOM}
 
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install git -y
+
+git clone https://github.com/jonesrussell/home-directory.git "${LOCAL_SHARE}/home-directory"
+
 INSTALL_SCRIPTS="scripts/install"
-USER_SCRIPTS="scripts/user"
+# USER_SCRIPTS="scripts/user"
 
 # Run software install scripts
+bash ${INSTALL_SCRIPTS}/initial.sh
 bash ${INSTALL_SCRIPTS}/drush.sh
 bash ${INSTALL_SCRIPTS}/thefuck.sh
 
