@@ -16,6 +16,7 @@ export LOCAL_BIN="${LOCAL}/bin"
 export LOCAL_SHARE="${LOCAL}/share"
 export LOCAL_CUSTOM="${LOCAL_SHARE}/custom"
 export DEV="${HOME}/Development"
+export DEV_SHELL="${DEV}/Shell"
 EOF
 source "${HOME}/.env.home"
 
@@ -24,15 +25,16 @@ mkdir -p ${LOCAL}
 mkdir -p ${LOCAL_BIN}
 mkdir -p ${LOCAL_SHARE}
 mkdir -p ${LOCAL_CUSTOM}
-mkdir -p ${DEV}/Shell
+mkdir -p ${DEV_SHELL}
 
 # sudo apt update -y
 # sudo apt upgrade -y
 # sudo apt install git php -y
 
-REPO="${DEV}/Shell/home-directory2"
-git clone https://github.com/jonesrussell/home-directory.git ${REPO}
-# sudo chown -R $USER:$USER $REPO
+REPO="${DEV_SHELL}/home-directory"
+if [ ! -d "${REPO}" ]; then
+    git clone https://github.com/jonesrussell/home-directory.git ${REPO}
+fi
 
 INSTALL_SCRIPTS="${REPO}/scripts/install"
 # USER_SCRIPTS="${REPO}/scripts/user"
