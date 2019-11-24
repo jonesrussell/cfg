@@ -26,6 +26,11 @@ DIR_USB_80="/mnt/${SERVER}/usb-80"
 DIR_USB_500="/mnt/${SERVER}/usb-500"
 DIR_MEDIA="/mnt/${SERVER}/media"
 
+if [ ! -x "$(command -v sshfs)" ]; then
+    sudo apt update
+    sudo apt install sshfs -y
+fi
+
 if [ ! -d "${DIR_DEV}" ]; then
 	# Ensure mount points exist
 	sudo mkdir -p "${DIR_DEV}" \
@@ -68,7 +73,7 @@ else
 	# TODO: sshfs error handling
 	sshfs "${USERNAME}@${SERVER}:${SHARE_USB_500}" "${DIR_USB_500}"
 
-	echo "${DIR_USB_500} -> ${SERVER}:${SHARE_USB_500}" 
+	echo "${DIR_USB_500} -> ${SERVER}:${SHARE_USB_500}"
 fi
 
 if [ "$(ls -A ${DIR_MEDIA})" ]; then
