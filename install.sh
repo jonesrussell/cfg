@@ -26,6 +26,7 @@ sudo apt upgrade -y
 sudo apt install git -y
 
 git clone https://github.com/jonesrussell/home-directory.git "${LOCAL_SHARE}/home-directory"
+cd "${LOCAL_SHARE}/home-directory"
 
 INSTALL_SCRIPTS="scripts/install"
 # USER_SCRIPTS="scripts/user"
