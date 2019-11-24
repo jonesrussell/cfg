@@ -67,6 +67,9 @@ ZSH_THEME="agnoster"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Enable syntax highlighting
+source "${HOME}/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -96,6 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+source "${HOME}/.env.home"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -120,7 +125,6 @@ eval $(thefuck --alias)
 # Solarized Dark colors
 eval `dircolors ~/.dir_colors/dircolors`
 
-# export JAVA_HOME=/usr/lib/jvm/jre1.8.0_231
 export JAVA_HOME=/usr/lib/jvm/jdk-13.0.1
 export PATH=$JAVA_HOME/bin:$PATH
 
@@ -142,11 +146,12 @@ export SHARE="${LOCAL}/share"
 export CUSTOM="${SHARE}/custom"
 
 # Aliases
-alias loc="cd $LOCAL"
-alias locs="cd $SHARE"
-alias locsb="cd $BIN"
-alias locsc="cd $CUSTOM"
+alias loc="cd ${LOCAL}"
+alias locb="cd ${BIN}"
+alias locs="cd ${SHARE}"
+alias locsc="cd ${CUSTOM}"
 
-# Enable syntax highlighting
-source "${HOME}/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+alias ebon="ssh ebon-hawk"
+alias bserve="ssh bserve"
+alias nightbrother="ssh nightbrother"
 
