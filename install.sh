@@ -10,28 +10,35 @@ if [ "${SUDO_USER}" = "" ]; then
 fi
 
 # Define user's local directories
+cat << EOF > "${HOME}/.env.home"
 export LOCAL="${HOME}/.local"
 export LOCAL_BIN="${LOCAL}/bin"
 export LOCAL_SHARE="${LOCAL}/share"
 export LOCAL_CUSTOM="${LOCAL_SHARE}/custom"
+export DEV="${HOME}/Development"
+EOF
+source "${HOME}/.env.home"
 
 # Create local directories
 mkdir -p ${LOCAL}
 mkdir -p ${LOCAL_BIN}
 mkdir -p ${LOCAL_SHARE}
 mkdir -p ${LOCAL_CUSTOM}
+mkdir -p ${DEV}/Shell
 
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install git -y
+sudo apt install git php -y
 
-git clone https://github.com/jonesrussell/home-directory.git "${LOCAL_SHARE}/home-directory"
-cd "${LOCAL_SHARE}/home-directory"
+REPO="${DEV}/Shell/home-directory2"
+git clone https://github.com/jonesrussell/home-directory.git ${REPO}
 
-INSTALL_SCRIPTS="scripts/install"
-# USER_SCRIPTS="scripts/user"
+INSTALL_SCRIPTS="${REPO}/scripts/install"
+# USER_SCRIPTS="${REPO}/scripts/user"
 
 # Run software install scripts
+bash ${INSTALL_SCRIPTS}/composer.sh
+exit
 bash ${INSTALL_SCRIPTS}/initial.sh
 bash ${INSTALL_SCRIPTS}/drush.sh
 bash ${INSTALL_SCRIPTS}/thefuck.sh
