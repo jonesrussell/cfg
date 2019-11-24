@@ -4,5 +4,3 @@ FILENAME="${HOME}/.zshrc"
 
 echo $@ >> "${FILENAME}"
 
-source $FILENAME
-
