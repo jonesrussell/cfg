@@ -27,9 +27,9 @@ mkdir -p ${LOCAL_SHARE}
 mkdir -p ${LOCAL_CUSTOM}
 mkdir -p ${DEV_SHELL}
 
-# sudo apt update -y
-# sudo apt upgrade -y
-# sudo apt install git php -y
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install git php -y
 
 REPO="${DEV_SHELL}/home-directory"
 if [ ! -d "${REPO}" ]; then
