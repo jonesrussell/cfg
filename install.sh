@@ -10,7 +10,7 @@
 #fi
 
 # Define user's local directories
-cat << EOF > "${HOME}/.env.home"
+cat <<- "EOF" > "${HOME}/.env.home"
 export LOCAL="${HOME}/.local"
 ***REMOVED***
 ***REMOVED***
@@ -27,27 +27,30 @@ mkdir -p ${LOCAL_SHARE}
 mkdir -p ${LOCAL_CUSTOM}
 mkdir -p ${DEV_SHELL}
 
+# Update base system, install git
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install git php -y
+sudo apt install git -y
 
+# Clone the "home-directory" repository
 REPO="${DEV_SHELL}/home-directory"
 if [ ! -d "${REPO}" ]; then
     git clone https://github.com/jonesrussell/home-directory.git ${REPO}
 fi
 
 INSTALL_SCRIPTS="${REPO}/scripts/install"
-# USER_SCRIPTS="${REPO}/scripts/user"
+CUSTOM_SCRIPTS="${REPO}/scripts/custom"
+
+sudo bash ${CUSTOM_SCRIPTS}/initial.sh
 
 # Run software install scripts
 bash ${INSTALL_SCRIPTS}/composer.sh
-exit
-bash ${INSTALL_SCRIPTS}/initial.sh
+zsh ${INSTALL_SCRIPTS}/cgr.zsh
 bash ${INSTALL_SCRIPTS}/drush.sh
 bash ${INSTALL_SCRIPTS}/thefuck.sh
 
-# Setup user scripts
-ORIG_FILE="${USER_SCRIPTS}/database-backup.sh"
+# Setup custom scripts
+ORIG_FILE="${CUSTOM_SCRIPTS}/database-backup.sh"
 TARGET_FILE="${LOCAL_CUSTOM}/database-backup.sh"
 TARGET_LINK="${LOCAL_BIN}/database-backup"
 if [ ! -f "${TARGET_FILE}"  ]; then
