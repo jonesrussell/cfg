@@ -48,6 +48,7 @@ bash ${INSTALL_SCRIPTS}/composer.sh
 zsh ${INSTALL_SCRIPTS}/cgr.zsh
 bash ${INSTALL_SCRIPTS}/drush.sh
 bash ${INSTALL_SCRIPTS}/thefuck.sh
+bash ${INSTALL_SCRIPTS}/oh-my-zsh.sh
 
 # Setup custom scripts
 ORIG_FILE="${CUSTOM_SCRIPTS}/database-backup.sh"
