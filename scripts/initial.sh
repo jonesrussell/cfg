@@ -7,4 +7,4 @@ if [ "${SUDO_USER}" = "" ]; then
 fi
 
 sudo apt install \
-    build-essentials curl wget zip unzip zsh -y
+    build-essential curl php wget zip unzip zsh -y
