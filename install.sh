@@ -41,7 +41,7 @@ fi
 INSTALL_SCRIPTS="${REPO}/scripts/install"
 CUSTOM_SCRIPTS="${REPO}/scripts/custom"
 
-sudo bash ${CUSTOM_SCRIPTS}/initial.sh
+sudo bash ${REPO}/scripts/initial.sh
 
 # Run software install scripts
 bash ${INSTALL_SCRIPTS}/composer.sh
