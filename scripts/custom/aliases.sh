@@ -28,5 +28,5 @@ fi
 
 FILENAME="${HOME}/.zshrc"
 
-echo alias $1=\"$2\" >> "${FILENAME}"
+echo alias $1=\"${@:2}\" >> "${FILENAME}"
 
