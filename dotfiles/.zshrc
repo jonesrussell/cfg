@@ -101,15 +101,6 @@ source $ZSH/oh-my-zsh.sh
 
 source "${HOME}/.env.home"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias xclip="xclip -selection clipboard"
 
 # export MATTERMOST_TEAM_NAME=Skeet
 # export MATTERMOST_URL=127.0.0.1
@@ -132,7 +123,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 export PATH=/home/russell/.fnm:$PATH
 eval "`fnm env --multi`"
 
-alias tj="cd ~/Development/TechJones"
+export COMPOSER_BINARY="/home/russell/.local/bin/composer"
 
 ##
 ## Configuration for ~/.local/{bin,share} 
@@ -145,13 +136,27 @@ export SHARE="${LOCAL}/share"
 # Custom scripts
 export CUSTOM="${SHARE}/custom"
 
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias xclip="xclip -selection clipboard"
+
 # Aliases
 alias loc="cd ${LOCAL}"
 alias locb="cd ${BIN}"
 alias locs="cd ${SHARE}"
 alias locsc="cd ${CUSTOM}"
 
-alias ebon="ssh ebon-hawk"
+alias tj="cd ~/Development/TechJones"
+
+alias ebon-hawk="ssh ebon-hawk"
+alias ebon="ebon-hawk"
 alias bserve="ssh bserve"
 alias nightbrother="ssh nightbrother"
+alias black-one="ssh black-one.russelljones.ca"
 
