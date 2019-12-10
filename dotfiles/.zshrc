@@ -1,9 +1,18 @@
-# export JAVA_HOME=/usr/lib/jvm/jdk-12.0.2
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export PATH=$HOME/.local/bin:/usr/local/bin:$JAVA_HOME/bin:$PATH
-export PATH="$(composer config -g home)/vendor/bin:$PATH"
+
+############################
+# Set some handy variables #
+############################
+export LOCAL="${HOME}/.local"
+export BIN="${LOCAL}/bin"
+export SHARE="${LOCAL}/share"
+export CUSTOM="${SHARE}/custom" 
+export COMPOSER_BINARY="${BIN}/composer"
+export PATH=${HOME}/.local/bin:$PATH
+# export PATH="$(composer config -g home)/vendor/bin:$PATH"
+export PATH="$(${COMPOSER_BINARY} config -g home)/vendor/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/russell/.oh-my-zsh"
@@ -101,7 +110,6 @@ source $ZSH/oh-my-zsh.sh
 
 source "${HOME}/.env.home"
 
-
 # export MATTERMOST_TEAM_NAME=Skeet
 # export MATTERMOST_URL=127.0.0.1
 # export MATTERMOST_USERNAME=nightpatter
@@ -123,18 +131,12 @@ export PATH=$JAVA_HOME/bin:$PATH
 export PATH=/home/russell/.fnm:$PATH
 eval "`fnm env --multi`"
 
-export COMPOSER_BINARY="/home/russell/.local/bin/composer"
-
 ##
 ## Configuration for ~/.local/{bin,share} 
 ##
 
-export LOCAL="$HOME/.local"
-export BIN="${LOCAL}/bin"
-export SHARE="${LOCAL}/share"
-
-# Custom scripts
-export CUSTOM="${SHARE}/custom"
+export OPENFAAS_PREFIX="jonesrussell"
+export JOPLIN_TOKEN="<REPLACE ME>"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -160,3 +162,18 @@ alias bserve="ssh bserve"
 alias nightbrother="ssh nightbrother"
 alias black-one="ssh black-one.russelljones.ca"
 
+alias saud="sudo apt update"
+alias saug="sudo apt upgrade -y"
+alias udug="saud && saug"
+alias sai="sudo apt install"
+
+# Joplin
+alias jnotes="curl -s http://localhost:41184/notes\?token\=17c90887cd27dc08815dabd6b0711e078ae29ba8e712556e7398bfef2fa1985d247ac9aebab81482c9123dc7e2530a7c56c463290dcef48241f62625464b5f13 | python -m json.tool"
+
+alias c="clear"
+alias s="source ~/.zshrc"
+alias z="vim /home/russell/.zshrc"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export NODE_PRE_GYP_GITHUB_TOKEN="<REPLACE ME>"
