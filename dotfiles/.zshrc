@@ -136,7 +136,7 @@ eval "`fnm env --multi`"
 ##
 
 export OPENFAAS_PREFIX="jonesrussell"
-export JOPLIN_TOKEN="<REPLACE ME>"
+export JOPLIN_TOKEN="<REDACTED>"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -168,7 +168,7 @@ alias udug="saud && saug"
 alias sai="sudo apt install"
 
 # Joplin
-alias jnotes="curl -s http://localhost:41184/notes\?token\=***REMOVED*** | python -m json.tool"
+alias jnotes="curl -s http://localhost:41184/notes\?token\=<REDACTED> | python -m json.tool"
 
 alias c="clear"
 alias s="source ~/.zshrc"
@@ -176,4 +176,8 @@ alias z="vim /home/russell/.zshrc"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-export NODE_PRE_GYP_GITHUB_TOKEN="<REPLACE ME>"
+export NODE_PRE_GYP_GITHUB_TOKEN="<REDACTED>"
+
+export GOPATH=$HOME/Development/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
