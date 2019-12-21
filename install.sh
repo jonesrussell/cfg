@@ -11,11 +11,15 @@
 
 # Define user's local directories
 cat <<- "EOF" > "${HOME}/.env.home"
-export LOCAL="${HOME}/.local"
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-export DEV="${HOME}/Development"
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
 ***REMOVED***
 EOF
 source "${HOME}/.env.home"
@@ -25,7 +29,9 @@ mkdir -p ${LOCAL}
 mkdir -p ${LOCAL_BIN}
 mkdir -p ${LOCAL_SHARE}
 mkdir -p ${LOCAL_CUSTOM}
+mkdir -p ${DEV}
 mkdir -p ${DEV_SHELL}
+mkdir -p ${DEVDO}
 
 # Update base system, install git
 sudo apt update -y
@@ -47,10 +53,23 @@ sudo bash ${REPO}/scripts/initial.sh
 bash ${INSTALL_SCRIPTS}/composer.sh
 bash ${INSTALL_SCRIPTS}/cgr.zsh
 bash ${INSTALL_SCRIPTS}/drush.sh
-bash ${INSTALL_SCRIPTS}/thefuck.sh
 bash ${INSTALL_SCRIPTS}/oh-my-zsh.sh
+bash ${INSTALL_SCRIPTS}/thefuck.sh
 
-# Setup custom scripts
+##
+## Install oh-my-zsh plugins
+##
+
+# Set the plugins directory
+ZSH_CUSTOM=${ZSH_CUSTOM:-$ZSH/custom}
+
+# Install plugins
+bash ${INSTALL_SCRIPTS}/zsh-safe-rm.sh
+bash ${INSTALL_SCRIPTS}/zsh-autosuggestions.sh
+
+##
+## Setup custom scripts
+##
 ORIG_FILE="${CUSTOM_SCRIPTS}/database-backup.sh"
 TARGET_FILE="${LOCAL_CUSTOM}/database-backup.sh"
 TARGET_LINK="${LOCAL_BIN}/database-backup"
@@ -60,13 +79,4 @@ if [ ! -f "${TARGET_FILE}"  ]; then
     ln -s ${TARGET_FILE} ${TARGET_LINK}
 fi
 
-##
-## Install oh-my-zsh plugins
-##
-
-# Set the plugins directory
-ZSH_CUSTOM=${ZSH_CUSTOM:-$ZSH/custom}
-
-# Safe rm
-git clone --recursive --depth 1 https://github.com/mattmc3/zsh-safe-rm.git $ZSH_CUSTOM/zsh-safe-rm
 
