@@ -97,6 +97,16 @@ local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
 local browser      = os.getenv("BROWSER") or "firefox"
 local scrlocker    = "slock"
 
+-- from: https://gwnichol.github.io/awesome%20wm/tweaks/2019/02/12/awesome-wm-modification.html
+naughty.config.notify_callback = function(args)
+	if args.icon then
+		args.icon_size = 50
+	end
+	return args
+end
+-- will work in v4.3
+beautiful.notification_icon_size = "64x64"
+
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
@@ -567,6 +577,17 @@ globalkeys = my_table.join(
               end,
               {description = "lua execute prompt", group = "awesome"})
     --]]
+)
+
+-- load the Volume widget 
+local volume_control = require("volume-control")
+-- define your volume control, using default settings:
+volumecfg = volume_control({})
+-- right_layout:add(volumecfg.widget)
+globalkeys = my_table.join(globalkeys,
+    awful.key({}, "XF86AudioRaiseVolume", function() volumecfg:up() end),
+    awful.key({}, "XF86AudioLowerVolume", function() volumecfg:down() end),
+    awful.key({}, "XF86AudioMute",        function() volumecfg:toggle() end)
 )
 
 clientkeys = my_table.join(
