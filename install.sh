@@ -62,11 +62,9 @@ CUSTOM_SCRIPTS="${REPO}/scripts/custom"
 sudo bash ${REPO}/scripts/initial.sh
 
 # Run software install scripts
-bash ${INSTALL_SCRIPTS}/composer.sh
-bash ${INSTALL_SCRIPTS}/cgr.zsh
-bash ${INSTALL_SCRIPTS}/drush.sh
-bash ${INSTALL_SCRIPTS}/oh-my-zsh.sh
-bash ${INSTALL_SCRIPTS}/thefuck.sh
+for f in ${INSTALL_SCRIPTS}/*.zsh; do
+  zsh "$f" -H
+done
 
 ##
 ## Install oh-my-zsh plugins
