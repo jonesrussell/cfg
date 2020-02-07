@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 if [ ! -x "$(command -v composer)" ]; then
     SETUP="/tmp/composer-setup.php"
