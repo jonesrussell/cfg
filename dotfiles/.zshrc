@@ -146,7 +146,6 @@ export JOPLIN_TOKEN="<REDACTED>"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias xclip="xclip -selection clipboard"
 
 # Aliases
 alias loc="cd ${LOCAL}"
@@ -180,4 +179,8 @@ export NODE_PRE_GYP_GITHUB_TOKEN="<REDACTED>"
 
 export GOPATH=$HOME/Development/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+alias duh1="du -hd 1 -t 1M"
+alias duh10="du -hd 1 -t 10M"
+alias duh100="du -hd 1 -t 100M"
 
