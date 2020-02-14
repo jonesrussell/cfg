@@ -148,7 +148,7 @@ PATH="${PATH}:${ANDROID_HOME}/platform-tools"
 ##
 
 export OPENFAAS_PREFIX="jonesrussell"
-export JOPLIN_TOKEN="***REMOVED***"
+export JOPLIN_TOKEN="17c90887cd27dc08815dabd6b0711e078ae29ba8e712556e7398bfef2fa1985d247ac9aebab81482c9123dc7e2530a7c56c463290dcef48241f62625464b5f13"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -180,7 +180,7 @@ alias udug="saud && saug"
 alias sai="sudo apt install"
 
 # Joplin
-alias jnotes="curl -s http://localhost:41184/notes\?token\=***REMOVED*** | python -m json.tool"
+alias jnotes="curl -s http://localhost:41184/notes\?token\=17c90887cd27dc08815dabd6b0711e078ae29ba8e712556e7398bfef2fa1985d247ac9aebab81482c9123dc7e2530a7c56c463290dcef48241f62625464b5f13 | python -m json.tool"
 
 alias c="clear"
 alias s="source ~/.zshrc"
@@ -188,7 +188,7 @@ alias z="vim /home/russell/.zshrc"
 
 PATH="$HOME/.cargo/bin:$PATH"
 
-export NODE_PRE_GYP_GITHUB_TOKEN="***REMOVED***"
+export NODE_PRE_GYP_GITHUB_TOKEN="6078cc13be8b0dffac46625bb611a554fe0dd3d1"
 
 export GOPATH=${SHARE}/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
