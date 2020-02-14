@@ -10,9 +10,9 @@ export BIN="${LOCAL}/bin"
 export SHARE="${LOCAL}/share"
 export CUSTOM="${SHARE}/custom" 
 export COMPOSER_BINARY="${BIN}/composer"
-export PATH=${HOME}/.local/bin:$PATH
+PATH=${HOME}/.local/bin:$PATH
 # export PATH="$(composer config -g home)/vendor/bin:$PATH"
-export PATH="$(${COMPOSER_BINARY} config -g home)/vendor/bin:$PATH"
+PATH="$(${COMPOSER_BINARY} config -g home)/vendor/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/russell/.oh-my-zsh"
@@ -77,14 +77,15 @@ ZSH_THEME="agnoster"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Enable syntax highlighting
-source "${HOME}/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# source "${HOME}/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+#plugins=(git zsh-autosuggestions)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,19 +125,30 @@ eval $(thefuck --alias)
 # Solarized Dark colors
 eval `dircolors ~/.dir_colors/dircolors`
 
-export JAVA_HOME=/usr/lib/jvm/jdk-13.0.1
-export PATH=$JAVA_HOME/bin:$PATH
+#export JAVA_HOME=/usr/lib/jvm/jdk-13.0.1
+#PATH=$JAVA_HOME/bin:$PATH
 
 # fnm
-export PATH=/home/russell/.fnm:$PATH
-eval "`fnm env --multi`"
+PATH=/home/russell/.fnm:$PATH
+eval "`fnm env --multi --shell=zsh --use-on-cd`"
+
+# Android IDE
+PATH="${PATH}:${SHARE}/android-studio/bin"
+
+# Android Sdk
+export ANDROID_HOME="${SHARE}/Android/Sdk"
+PATH="${PATH}:${ANDROID_HOME}/tools"
+PATH="${PATH}:${ANDROID_HOME}/platform-tools"
+
+# Zsh, ~/.zshrc
+# eval "$(grunt --completion=zsh)"
 
 ##
 ## Configuration for ~/.local/{bin,share} 
 ##
 
 export OPENFAAS_PREFIX="jonesrussell"
-export JOPLIN_TOKEN="<REDACTED>"
+export JOPLIN_TOKEN="17c90887cd27dc08815dabd6b0711e078ae29ba8e712556e7398bfef2fa1985d247ac9aebab81482c9123dc7e2530a7c56c463290dcef48241f62625464b5f13"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -146,6 +158,7 @@ export JOPLIN_TOKEN="<REDACTED>"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias xclip="xclip -selection clipboard"
 
 # Aliases
 alias loc="cd ${LOCAL}"
@@ -167,20 +180,37 @@ alias udug="saud && saug"
 alias sai="sudo apt install"
 
 # Joplin
-alias jnotes="curl -s http://localhost:41184/notes\?token\=<REDACTED> | python -m json.tool"
+alias jnotes="curl -s http://localhost:41184/notes\?token\=17c90887cd27dc08815dabd6b0711e078ae29ba8e712556e7398bfef2fa1985d247ac9aebab81482c9123dc7e2530a7c56c463290dcef48241f62625464b5f13 | python -m json.tool"
 
 alias c="clear"
 alias s="source ~/.zshrc"
 alias z="vim /home/russell/.zshrc"
 
-export PATH="$HOME/.cargo/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
 
-export NODE_PRE_GYP_GITHUB_TOKEN="<REDACTED>"
+export NODE_PRE_GYP_GITHUB_TOKEN="6078cc13be8b0dffac46625bb611a554fe0dd3d1"
 
-export GOPATH=$HOME/Development/go
+export GOPATH=${SHARE}/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+alias e="echo"
+
+alias dellast="sed -i '$ d' $@"
+
+alias v="vim $@"
+
+alias brd="sudo /home/russell/.local/bin/backlight down"
+alias bru="sudo /home/russell/.local/bin/backlight up"
+
+alias awerc="vim /home/russell/.config/awesome/rc.lua"
+alias gci="git commit -m 'Initial commit'"
+
+alias lspath="echo $PATH | tr : '\n'"
 
 alias duh1="du -hd 1 -t 1M"
 alias duh10="du -hd 1 -t 10M"
 alias duh100="du -hd 1 -t 100M"
+
+alias l="ls -lah --group-directories-first"
+alias ll="ls -lh --group-directories-first"
 
