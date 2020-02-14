@@ -23,16 +23,16 @@ exit 0
 
 # Define user's local directories
 cat <<- "EOF" > "${HOME}/.env.home"
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+# Personal /usr/local
+export LOCAL="/home/russell/.local"
+export LOCAL_BIN="${LOCAL}/bin"
+export LOCAL_SHARE="${LOCAL}/share"
+export LOCAL_CUSTOM="${LOCAL_SHARE}/custom"
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+# Development / Programming
+export DEV="/home/russell/Development"
+export DEV_SHELL="${DEV}/Shell"
+export DEVDO="${DEV}/DigitalOcean"
 EOF
 source "${HOME}/.env.home"
 
