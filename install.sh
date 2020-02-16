@@ -35,8 +35,8 @@ export DEVS="${DEV}/Shell"
 export DEVDO="${DEV}/DigitalOcean"
 export DEVR="${DEV}/Research"
 
-export DEVPC="content.russelljones.ca-drupal"
-export DEVPF="www.russelljones.ca-react"
+export DEVPC="${DEVDO}/content.russelljones.ca-drupal"
+export DEVPF="${DEVDO}/www.russelljones.ca-react"
 export DEVH="${DEVS}/home-directory"
 EOF
 source "${HOME}/.env.home"
