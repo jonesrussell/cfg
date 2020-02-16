@@ -24,15 +24,20 @@ exit 0
 # Define user's local directories
 cat <<- "EOF" > "${HOME}/.env.home"
 # Personal /usr/local
-export LOCAL="/home/russell/.local"
+export LOCAL="${HOME}/russell/.local"
 export LOCAL_BIN="${LOCAL}/bin"
 export LOCAL_SHARE="${LOCAL}/share"
 export LOCAL_CUSTOM="${LOCAL_SHARE}/custom"
 
 # Development / Programming
-export DEV="/home/russell/Development"
-export DEV_SHELL="${DEV}/Shell"
+export DEV="${HOME}/Development"
+export DEVS="${DEV}/Shell"
 export DEVDO="${DEV}/DigitalOcean"
+export DEVR="${DEV}/Research"
+
+export DEVPC="content.russelljones.ca-drupal"
+export DEVPF="www.russelljones.ca-react"
+export DEVH="${DEVS}/home-directory"
 EOF
 source "${HOME}/.env.home"
 
@@ -42,7 +47,7 @@ mkdir -p ${LOCAL_BIN}
 mkdir -p ${LOCAL_SHARE}
 mkdir -p ${LOCAL_CUSTOM}
 mkdir -p ${DEV}
-mkdir -p ${DEV_SHELL}
+mkdir -p ${DEVS}
 mkdir -p ${DEVDO}
 
 # Update base system, install git
@@ -56,10 +61,10 @@ if [ ! -d "${REPO}" ]; then
     git clone https://github.com/jonesrussell/home-directory.git ${REPO}
 fi
 
-INSTALL_SCRIPTS="${REPO}/scripts/install"
-CUSTOM_SCRIPTS="${REPO}/scripts/custom"
+INSTALL_SCRIPTS="${REPO}/install"
+CUSTOM_SCRIPTS="${REPO}/custom"
 
-sudo bash ${REPO}/scripts/initial.sh
+sudo bash ${REPO}/initial.sh
 
 # Run software install scripts
 for f in ${INSTALL_SCRIPTS}/*.zsh; do
