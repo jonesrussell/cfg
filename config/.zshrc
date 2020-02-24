@@ -5,12 +5,6 @@
 ############################
 # Set some handy variables #
 ############################
-export LOCAL="${HOME}/.local"
-export BIN="${LOCAL}/bin"
-export SHARE="${LOCAL}/share"
-export CUSTOM="${SHARE}/custom" 
-export COMPOSER_BINARY="${BIN}/composer"
-PATH=${HOME}/.local/bin:$PATH
 # export PATH="$(composer config -g home)/vendor/bin:$PATH"
 PATH="$(${COMPOSER_BINARY} config -g home)/vendor/bin:$PATH"
 
@@ -21,7 +15,9 @@ export ZSH="/home/russell/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="palenight"
+
+export ZSH_THEME_SHOW_HOST=true
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -85,7 +81,31 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git zsh-autosuggestions)
-plugins=(git)
+plugins=(
+    composer
+    cp
+    docker
+    docker-compose
+    drush
+    git
+    ionic
+    laravel
+    nmap
+    node
+    npm
+    npx
+    rsync
+    systemd
+    sudo
+#    thefuck
+    ufw
+    vscode
+    web-search
+    zsh-autosuggestions
+    zsh-interactive-cd
+    zsh-navigation-tools
+    zsh-safe-rm
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -148,7 +168,6 @@ PATH="${PATH}:${ANDROID_HOME}/platform-tools"
 ##
 
 export OPENFAAS_PREFIX="jonesrussell"
-export JOPLIN_TOKEN="17c90887cd27dc08815dabd6b0711e078ae29ba8e712556e7398bfef2fa1985d247ac9aebab81482c9123dc7e2530a7c56c463290dcef48241f62625464b5f13"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -172,7 +191,9 @@ alias ebon-hawk="ssh ebon-hawk"
 alias ebon="ebon-hawk"
 alias bserve="ssh bserve"
 alias nightbrother="ssh nightbrother"
+alias raven="ssh ravens-claw"
 alias black-one="ssh black-one.russelljones.ca"
+alias razor-crest="ssh razor-crest.russelljones.ca"
 
 alias saud="sudo apt update"
 alias saug="sudo apt upgrade -y"
@@ -187,8 +208,6 @@ alias s="source ~/.zshrc"
 alias z="vim /home/russell/.zshrc"
 
 PATH="$HOME/.cargo/bin:$PATH"
-
-export NODE_PRE_GYP_GITHUB_TOKEN="6078cc13be8b0dffac46625bb611a554fe0dd3d1"
 
 export GOPATH=${SHARE}/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
@@ -213,4 +232,11 @@ alias duh100="du -hd 1 -t 100M"
 
 alias l="ls -lah --group-directories-first"
 alias ll="ls -lh --group-directories-first"
+
+# junegunn / fzf
+# cherry_blossom A command-line fuzzy finder
+# 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias kk="ps aux | grep chrom | grep 'disable-databases'| awk '{print $2}' | xargs kill -9"
 
