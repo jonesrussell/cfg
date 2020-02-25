@@ -5,8 +5,6 @@
 ############################
 # Set some handy variables #
 ############################
-# export PATH="$(composer config -g home)/vendor/bin:$PATH"
-PATH="$(${COMPOSER_BINARY} config -g home)/vendor/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/russell/.oh-my-zsh"
@@ -130,6 +128,9 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 source "${HOME}/.env.home"
+
+# export PATH="$(composer config -g home)/vendor/bin:$PATH"
+PATH="$(${COMPOSER_BINARY} config -g home)/vendor/bin:$PATH"
 
 # export MATTERMOST_TEAM_NAME=Skeet
 # export MATTERMOST_URL=127.0.0.1
