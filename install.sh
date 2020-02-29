@@ -19,33 +19,33 @@ case "$OSTYPE" in
   *)        echo "unknown: $OSTYPE" ;;
 esac
 
-exit 0
-
 # Define user's local directories
 cat <<- "EOF" > "${HOME}/.env.home"
 # Personal /usr/local
-export LOCAL="${HOME}/russell/.local"
-export LOCAL_BIN="${LOCAL}/bin"
-export LOCAL_SHARE="${LOCAL}/share"
-export LOCAL_CUSTOM="${LOCAL_SHARE}/custom"
+export LOCAL="${HOME}/.local"
+export BIN="${LOCAL}/bin"
+export SHARE="${LOCAL}/share"
+export CUSTOM="${LOCAL}/custom"
 
 # Development / Programming
 export DEV="${HOME}/Development"
 export DEVS="${DEV}/Shell"
 export DEVDO="${DEV}/DigitalOcean"
 export DEVR="${DEV}/Research"
-
-export DEVPC="${DEVDO}/content.russelljones.ca-drupal"
-export DEVPF="${DEVDO}/www.russelljones.ca-react"
+export DEVPC="${DEV}/Portfolio/content.russelljones.ca-drupal"
+export DEVPF="${DEVDO}/Portfolio/www.russelljones.ca-react"
 export DEVH="${DEVS}/home-directory"
+
+export COMPOSER_BINARY=$BIN/composer
+
 EOF
 source "${HOME}/.env.home"
 
 # Create local directories
 mkdir -p ${LOCAL}
-mkdir -p ${LOCAL_BIN}
-mkdir -p ${LOCAL_SHARE}
-mkdir -p ${LOCAL_CUSTOM}
+mkdir -p ${BIN}
+mkdir -p ${SHARE}
+mkdir -p ${CUSTOM}
 mkdir -p ${DEV}
 mkdir -p ${DEVS}
 mkdir -p ${DEVDO}
@@ -93,5 +93,4 @@ if [ ! -f "${TARGET_FILE}"  ]; then
     chmod u+x ${TARGET_FILE}
     ln -s ${TARGET_FILE} ${TARGET_LINK}
 fi
-
 
