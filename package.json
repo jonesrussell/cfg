@@ -1,0 +1,29 @@
+{
+  "name": "home-directory",
+  "version": "1.0.0",
+  "description": "Simple system setup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonesrussell/home-directory.git"
+  },
+  "keywords": [
+    "ubuntu",
+    "18.04",
+    "bionic",
+    "beaver",
+    "oh-my-zsh"
+  ],
+  "author": "Russell Jones <jonesrussell42@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonesrussell/home-directory/issues"
+  },
+  "homepage": "https://github.com/jonesrussell/home-directory#readme",
+  "dependencies": {
+    "shelljs": "^0.8.3"
+  }
+}
