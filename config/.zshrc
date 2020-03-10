@@ -213,6 +213,8 @@ PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH=${SHARE}/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
+export PATH=$PATH:$HOME/.yarn/bin
+
 alias e="echo"
 
 alias dellast="sed -i '$ d' $@"
@@ -230,6 +232,7 @@ alias lspath="echo $PATH | tr : '\n'"
 alias duh1="du -hd 1 -t 1M"
 alias duh10="du -hd 1 -t 10M"
 alias duh100="du -hd 1 -t 100M"
+alias duh1000="du -hd 1 -t 1000M"
 
 alias l="ls -lah --group-directories-first"
 alias ll="ls -lh --group-directories-first"
@@ -240,4 +243,10 @@ alias ll="ls -lh --group-directories-first"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias kk="ps aux | grep chrom | grep 'disable-databases'| awk '{print $2}' | xargs kill -9"
+
+alias vca="./vessel art clear-compiled && ./vessel art config:clear && ./vessel art cache:clear"
+
+# added for npm-completion https://github.com/Jephuff/npm-bash-completion
+#PATH_TO_NPM_COMPLETION="/tmp/npm-completion"
+#source $PATH_TO_NPM_COMPLETION/npm-completion.sh
 
