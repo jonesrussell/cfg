@@ -7,7 +7,7 @@
 ############################
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/russell/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -108,7 +108,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Remove user name and device name from prompt
-# prompt_context() {} 
+# prompt_context() {}
 
 # User configuration
 
@@ -150,7 +150,7 @@ eval `dircolors ~/.dir_colors/dircolors`
 #PATH=$JAVA_HOME/bin:$PATH
 
 # fnm
-PATH=/home/russell/.fnm:$PATH
+PATH=${HOME}/.fnm:${PATH}
 eval "`fnm env --multi --shell=zsh --use-on-cd`"
 
 # Android IDE
@@ -165,7 +165,7 @@ PATH="${PATH}:${ANDROID_HOME}/platform-tools"
 # eval "$(grunt --completion=zsh)"
 
 ##
-## Configuration for ~/.local/{bin,share} 
+## Configuration for ~/.local/{bin,share}
 ##
 
 export OPENFAAS_PREFIX="jonesrussell"
@@ -205,13 +205,13 @@ alias sai="sudo apt install"
 alias jnotes="curl -s http://localhost:41184/notes\?token\=17c90887cd27dc08815dabd6b0711e078ae29ba8e712556e7398bfef2fa1985d247ac9aebab81482c9123dc7e2530a7c56c463290dcef48241f62625464b5f13 | python -m json.tool"
 
 alias c="clear"
-alias s="source ~/.zshrc"
-alias z="vim /home/russell/.zshrc"
+alias s="source ${HOME}/.zshrc"
+alias z="vim ${HOME}/.zshrc"
 
 PATH="$HOME/.cargo/bin:$PATH"
 
 export GOPATH=${SHARE}/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 export PATH=$PATH:$HOME/.yarn/bin
 
@@ -221,10 +221,11 @@ alias dellast="sed -i '$ d' $@"
 
 alias v="vim $@"
 
-alias brd="sudo /home/russell/.local/bin/backlight down"
-alias bru="sudo /home/russell/.local/bin/backlight up"
+# F5/F6 brightness keys on HP Elitebook
+alias brd="sudo ${BIN}/backlight down"
+alias bru="sudo ${BIN}/backlight up"
 
-alias awerc="vim /home/russell/.config/awesome/rc.lua"
+alias awerc="vim ${HOME}/.config/awesome/rc.lua"
 alias gci="git commit -m 'Initial commit'"
 
 alias lspath="echo $PATH | tr : '\n'"
@@ -239,7 +240,7 @@ alias ll="ls -lh --group-directories-first"
 
 # junegunn / fzf
 # cherry_blossom A command-line fuzzy finder
-# 
+#
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias kk="ps aux | grep chrom | grep 'disable-databases'| awk '{print $2}' | xargs kill -9"

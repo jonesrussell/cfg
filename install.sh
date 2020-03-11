@@ -53,7 +53,6 @@ mkdir -p ${DEVDO}
 # Update base system, install git
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install git -y
 
 # Clone the "home-directory" repository
 REPO="${DEV_SHELL}/home-directory"
@@ -93,4 +92,3 @@ if [ ! -f "${TARGET_FILE}"  ]; then
     chmod u+x ${TARGET_FILE}
     ln -s ${TARGET_FILE} ${TARGET_LINK}
 fi
-
