@@ -6,5 +6,7 @@ if [ "${SUDO_USER}" = "" ]; then
 	exit 1
 fi
 
-sudo apt install \
-    build-essential curl php wget zip unzip zsh -y
+apt install \
+    build-essential curl php ruby \
+    wget unzip zip zsh -y
+
