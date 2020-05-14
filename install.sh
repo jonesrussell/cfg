@@ -1,15 +1,8 @@
 #!/bin/bash
 
-# Full path of this script
-# SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" >/dev/null 2>&1 && pwd  )"
-
-# Ensure running with sudo
-#if [ "${SUDO_USER}" = "" ]; then
-#	echo "Must be run with sudo."
-#	exit 1
-#fi
-
+#
 # Detect OS
+#
 case "$OSTYPE" in
   solaris*) echo "SOLARIS" ;;
   darwin*)  echo "OSX" ;;
@@ -19,7 +12,9 @@ case "$OSTYPE" in
   *)        echo "unknown: $OSTYPE" ;;
 esac
 
+#
 # Define user's local directories
+#
 cat <<- "EOF" > "${HOME}/.env.home"
 # Personal /usr/local
 export LOCAL="${HOME}/.local"
