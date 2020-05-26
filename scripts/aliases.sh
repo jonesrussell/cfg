@@ -26,7 +26,7 @@ if [ -z "$2" ] ; then
 	exit 1
 fi
 
-FILENAME="${HOME}/.zshrc"
+FILENAME="${HOME}/.oh-my-zsh/custom/zaliases.zsh"
 
 echo alias $1=\"${@:2}\" >> "${FILENAME}"
 
