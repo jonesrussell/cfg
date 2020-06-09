@@ -12,21 +12,19 @@ if [ "$1" = "--help" ] ||  [ "$1" = "-h" ] ; then
 	exit 0
 fi
 
-# Ensure alias is provided
 if [ -z "$1" ] ; then
 	echo -e "An alias name must be provided.\n"
 	display_usage
 	exit 1
 fi
 
-# Ensure alias is provided
 if [ -z "$2" ] ; then
 	echo -e "A command must be provided.\n"
 	display_usage
 	exit 1
 fi
 
-FILENAME="${HOME}/.oh-my-zsh/custom/zaliases.zsh"
+FILENAME="${ZSH}/custom/zaliases.zsh"
 
 echo alias $1=\"${@:2}\" >> "${FILENAME}"
 
