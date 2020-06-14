@@ -12,47 +12,14 @@ case "$OSTYPE" in
   *)        echo "unknown: $OSTYPE" ;;
 esac
 
-#
-# Define user's local directories
-#
-cat <<- "EOF" > "${HOME}/.env.home"
-# Personal /usr/local
-export LOCAL="${HOME}/.local"
-export BIN="${LOCAL}/bin"
-export SHARE="${LOCAL}/share"
-export CUSTOM="${LOCAL}/custom"
-
-# Development / Programming
-export DEV="${HOME}/Development"
-export DEVS="${DEV}/Shell"
-export DEVDO="${DEV}/DigitalOcean"
-export DEVR="${DEV}/Research"
-export DEVPC="${DEV}/Portfolio/content.russelljones.ca-drupal"
-export DEVPF="${DEVDO}/Portfolio/www.russelljones.ca-react"
-export DEVH="${DEVS}/home-directory"
-
-export COMPOSER_BINARY=$BIN/composer
-
-EOF
-source "${HOME}/.env.home"
-
-# Create local directories
-mkdir -p ${LOCAL}
-mkdir -p ${BIN}
-mkdir -p ${SHARE}
-mkdir -p ${CUSTOM}
-mkdir -p ${DEV}
-mkdir -p ${DEVS}
-mkdir -p ${DEVDO}
-
 # Update base system, install git
-sudo apt update -y
-sudo apt upgrade -y
+sudo apt update \
+    && sudo apt upgrade -y
 
-# Clone the "home-directory" repository
-REPO="${DEV_SHELL}/home-directory"
+# Clone the "cfg" repository
+REPO="${DEV_SHELL}/cfg"
 if [ ! -d "${REPO}" ]; then
-    git clone https://github.com/jonesrussell/home-directory.git ${REPO}
+    git clone https://github.com/jonesrussell/cfg.git ${REPO}
 fi
 
 INSTALL_SCRIPTS="${REPO}/install"
