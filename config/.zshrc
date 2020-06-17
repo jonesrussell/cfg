@@ -97,14 +97,14 @@ plugins=(
     npm
     npx
     rsync
-#    systemd
+    systemd
     sudo
 #    thefuck
     ufw
 #    vscode
 #    web-search
     zsh-autosuggestions
-#    zsh-interactive-cd
+    zsh-interactive-cd
     zsh-navigation-tools
     zsh-safe-rm
     zsh-syntax-highlighting
@@ -143,15 +143,11 @@ setopt EXTENDED_HISTORY
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-
 # Magnificent utility
 # eval $(thefuck --alias)
 
 # Solarized Dark colors
 eval `dircolors ~/.dir_colors/dircolors`
-
-# export JAVA_HOME=/usr/lib/jvm/jdk-13.0.1
-#export PATH=$JAVA_HOME/bin:$PATH
 
 # fnm
 export PATH=${HOME}/.fnm:${PATH}
@@ -162,5 +158,5 @@ eval "`fnm env --multi --shell=zsh --use-on-cd`"
 #
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source "/etc/profile.d/rvm.sh"
+#source "/etc/profile.d/rvm.sh"
 

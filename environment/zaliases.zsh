@@ -83,6 +83,7 @@ alias kk="ps aux | grep chrom | grep 'disable-databases'| awk '{print $2}' | xar
 alias vca="./vessel art clear-compiled && ./vessel art config:clear && ./vessel art cache:clear"
 alias checkmyip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias za="vim /home/russell/.oh-my-zsh/custom/zaliases.zsh"
+alias zv="vim /home/russell/.oh-my-zsh/custom/variables.zsh"
 alias xpwd="pwd|xclip"
 # pipe to xclip (e.g. ) == copy to clipboard
 alias xclip="xclip -selection clipboard"
