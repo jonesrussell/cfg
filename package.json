@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/jonesrussell/cfg#readme",
   "dependencies": {
+    "commander": "^5.1.0",
     "shelljs": "^0.8.3"
   }
 }
