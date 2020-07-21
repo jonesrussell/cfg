@@ -46,7 +46,6 @@ alias v="vim $@"
 alias brd="sudo /home/russell/.local/bin/backlight down"
 alias bru="sudo /home/russell/.local/bin/backlight up"
 alias awerc="vim ${HOME}/.config/awesome/rc.lua"
-alias lspath="echo $PATH | tr : '\n'"
 
 # Linux system
 alias duh1="du -hd 1 -t 1M"
