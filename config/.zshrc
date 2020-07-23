@@ -77,47 +77,39 @@ export UPDATE_ZSH_DAYS=7
 # Enable syntax highlighting
 # source "${HOME}/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-#plugins=(git zsh-autosuggestions)
+# Plugins
+#
+# ${ZSH}/plugins/*
+# ${ZSH}/custom/plugins/.
+#
+# * Too many plugins slow down shell startup.
 plugins=(
     composer
     cp
     docker
     docker-compose
     drush
+    emoji-clock
     git
-#    ionic
-#    laravel
     nmap
     node
     npm
-    npx
     rsync
     systemd
     sudo
-#    thefuck
     ufw
-#    vscode
-#    web-search
     zsh-autosuggestions
-    zsh-interactive-cd
     zsh-navigation-tools
     zsh-safe-rm
     zsh-syntax-highlighting
     zsh_reload
-)
-
-# Homebrew completions
-# if type brew &>/dev/null; then
-#   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-#
-#   autoload -Uz compinit
-#   compinit
-# fi
+#    ionic
+#    laravel
+#    npx
+#    thefuck
+#    vscode
+#    web-search
+ )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -154,7 +146,7 @@ export PATH=${HOME}/.fnm:${PATH}
 eval "`fnm env --multi --shell=zsh --use-on-cd`"
 
 # junegunn / fzf
-# cherry_blossom A command-line fuzzy finder
+# A command-line fuzzy finder
 #
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
