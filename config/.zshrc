@@ -13,7 +13,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="palenight"
+ZSH_THEME="agnoster"
 
 export ZSH_THEME_SHOW_HOST=true
 
@@ -84,16 +84,18 @@ export UPDATE_ZSH_DAYS=7
 #
 # * Too many plugins slow down shell startup.
 plugins=(
-    composer
+    zsh-nvm
+    zsh-better-npm-completion
+#    composer
     cp
     docker
     docker-compose
-    drush
-    emoji-clock
+#    drush
+#    emoji-clock
     git
     nmap
-    node
-    npm
+#    node
+#    npm
     rsync
     systemd
     sudo
@@ -103,6 +105,7 @@ plugins=(
     zsh-safe-rm
     zsh-syntax-highlighting
     zsh_reload
+#    site-functions
 #    ionic
 #    laravel
 #    npx
@@ -141,14 +144,16 @@ setopt EXTENDED_HISTORY
 # Solarized Dark colors
 eval `dircolors ~/.dir_colors/dircolors`
 
-# fnm
-export PATH=${HOME}/.fnm:${PATH}
-eval "`fnm env --multi --shell=zsh --use-on-cd`"
-
 # junegunn / fzf
 # A command-line fuzzy finder
 #
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#source "/etc/profile.d/rvm.sh"
+# Ruby Version Manager
+# source "/etc/profile.d/rvm.sh"
+
+# add ~/.my_zsh_functions to fpath, and then lazy autoload
+# every file in there as a function
+# fpath=(~/.oh-my-zsh/custom $fpath);
+# autoload -U $fpath[1]/*(.:t)
 

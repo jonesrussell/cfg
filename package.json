@@ -1,10 +1,13 @@
 {
   "name": "cfg",
+  "type": "module",
   "version": "1.1.0",
   "description": "Ubuntu system setup",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p ./src",
+    "start": "npm run build -- -w"
   },
   "repository": {
     "type": "git",
@@ -12,10 +15,8 @@
   },
   "keywords": [
     "ubuntu",
-    "18.04",
-    "bionic",
-    "beaver",
-    "oh-my-zsh"
+    "20.04",
+    "focal"
   ],
   "author": "Russell Jones <jonesrussell42@gmail.com>",
   "license": "MIT",
@@ -24,7 +25,9 @@
   },
   "homepage": "https://github.com/jonesrussell/cfg#readme",
   "dependencies": {
+    "@types/node": "^14.14.5",
     "commander": "^5.1.0",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.3",
+    "typescript": "^4.0.3"
   }
 }

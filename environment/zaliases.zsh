@@ -19,7 +19,7 @@ alias locb="cd ${BIN}"
 alias locs="cd ${SHARE}"
 alias locsc="cd ${CUSTOM}"
 alias mm2k="cd /mnt/usb-2000/media/movies"
-alias dtc="cd /home/russell/transmission-complete"
+#alias dtc="cd /home/russell/transmission-complete"
 alias dev="cd ${DEV}"
 alias devhd="cd ${DEVHD}"
 
@@ -38,7 +38,7 @@ alias dellast="sed -i '$ d' $@"
 
 # Alphabetic
 alias c="clear"
-alias s="source ~/.zshrc"
+#alias s="source ~/.zshrc"
 alias z="vim /home/russell/.zshrc"
 alias e="echo"
 alias v="vim $@"
@@ -89,3 +89,29 @@ alias ssh-keycopy="cat ~/.ssh/id_rsa.pub|xclip"
 alias cgrx="$HOME/.composer/vendor/bin/cgr"
 alias ddcr="ddev drush cr"
 alias te="trash-empty"
+alias fixx="sudo xrandr --addmode DP-2 1440x900"
+alias sarv="sudo apt remove --purge -y"
+alias glances="glances -C /home/russell/.config/glances.conf"
+alias s="sudo"
+
+
+function gitall() {
+    git add .
+    if [ "$1" != "" ]
+    then
+        git commit -m "$1"
+    else
+        git commit -m "WIP" # default commit message is `update`
+    fi # closing statement of if-else block
+    # git push origin HEAD
+}
+
+function sarm() {
+    sudo apt-get remove $@ -y && sudo apt-get autoremove -y
+}
+
+alias rancher="ssh rancher@142.93.147.10"
+alias nightbrother="ssh russell@192.168.42.79"
+
+export OPENFAAS_URL=$(kubectl get svc -n openfaas gateway-external -o jsonpath='{.status.loadBalancer.ingress[*].ip}'):8080
+

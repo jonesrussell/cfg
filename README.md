@@ -1,9 +1,9 @@
-# Welcome to my configs 
+# Setup my Linux workstation
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Twitter: jonesrussell42](https://img.shields.io/twitter/follow/jonesrussell42.svg?style=social)](https://twitter.com/jonesrussell42)
 
-> Setup a new system with the software and configurations I am used to:
+> Setup a fresh (or dirty) Linux system with the apps, configs, and environment for my daily use:
 >
 > - Ubuntu 18.04 (LTS) 
 > - Mint 19.3 (LTS)
