@@ -1,12 +1,12 @@
 {
-  "name": "cfg",
-  "type": "module",
+  "name": "@herbigharo/cfg",
   "version": "1.1.0",
   "description": "Ubuntu system setup",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p ./src",
+    "build": "tsc --build tsconfig.json",
     "start": "npm run build -- -w"
   },
   "repository": {
@@ -24,10 +24,16 @@
     "url": "https://github.com/jonesrussell/cfg/issues"
   },
   "homepage": "https://github.com/jonesrussell/cfg#readme",
-  "dependencies": {
+  "bin": {
+    "packages": "./dist/packages.js"
+  },
+  "devDependencies": {
     "@types/node": "^14.14.5",
     "commander": "^5.1.0",
-    "shelljs": "^0.8.3",
-    "typescript": "^4.0.3"
+    "shelljs": "^0.8.4",
+    "typescript": "^4.0.5"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }

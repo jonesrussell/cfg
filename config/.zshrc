@@ -84,7 +84,7 @@ export UPDATE_ZSH_DAYS=7
 #
 # * Too many plugins slow down shell startup.
 plugins=(
-    zsh-nvm
+    nvm
     zsh-better-npm-completion
 #    composer
     cp
