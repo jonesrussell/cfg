@@ -11,6 +11,7 @@
         "rulePaths": ["./scripts/eslint/built/rules/"],
         "ext": [".ts"]
     },
+    "npm-scripts.showStartNotification": false,
     // To use the last-known-good (LKG) compiler version:
     // "typescript.tsdk": "lib"
 
