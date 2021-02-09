@@ -94,7 +94,6 @@ alias sarv="sudo apt remove --purge -y"
 alias glances="glances -C /home/russell/.config/glances.conf"
 alias s="sudo"
 
-
 function gitall() {
     git add .
     if [ "$1" != "" ]
@@ -106,6 +105,17 @@ function gitall() {
     # git push origin HEAD
 }
 
+function gitsol() {
+    git add .
+    if [ "$1" != "" ]
+    then
+        git commit -m "$1"
+    else
+        git commit -m "Solution" # default commit message is `update`
+    fi # closing statement of if-else block
+    # git push origin HEAD
+}
+
 function sarm() {
     sudo apt-get remove $@ -y && sudo apt-get autoremove -y
 }
@@ -113,5 +123,16 @@ function sarm() {
 alias rancher="ssh rancher@142.93.147.10"
 alias nightbrother="ssh russell@192.168.42.79"
 
-export OPENFAAS_URL=$(kubectl get svc -n openfaas gateway-external -o jsonpath='{.status.loadBalancer.ingress[*].ip}'):8080
+# export OPENFAAS_URL=$(kubectl get svc -n openfaas gateway-external -o jsonpath='{.status.loadBalancer.ingress[*].ip}'):8080
+
+alias brightness-1="xrandr --output eDP-1 --brightness 0.1"
+alias brightness-2="xrandr --output eDP-1 --brightness 0.2"
+alias brightness-3="xrandr --output eDP-1 --brightness 0.3"
+alias brightness-4="xrandr --output eDP-1 --brightness 0.4"
+alias brightness-5="xrandr --output eDP-1 --brightness 0.5"
+alias brightness-6="xrandr --output eDP-1 --brightness 0.6"
+alias brightness-7="xrandr --output eDP-1 --brightness 0.7"
+alias brightness-8="xrandr --output eDP-1 --brightness 0.8"
+alias brightness-9="xrandr --output eDP-1 --brightness 0.9"
+alias brightness-10="xrandr --output eDP-1 --brightness 1.0"
 

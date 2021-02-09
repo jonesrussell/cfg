@@ -97,8 +97,9 @@ plugins=(
 #    node
 #    npm
     rsync
-    systemd
+    ssh-agent
     sudo
+    systemd
     ufw
     zsh-autosuggestions
     zsh-navigation-tools
@@ -126,20 +127,17 @@ setopt EXTENDED_HISTORY
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_CA.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Magnificent utility
-# eval $(thefuck --alias)
 
 # Solarized Dark colors
 eval `dircolors ~/.dir_colors/dircolors`
@@ -152,8 +150,30 @@ eval `dircolors ~/.dir_colors/dircolors`
 # Ruby Version Manager
 # source "/etc/profile.d/rvm.sh"
 
-# add ~/.my_zsh_functions to fpath, and then lazy autoload
-# every file in there as a function
-# fpath=(~/.oh-my-zsh/custom $fpath);
-# autoload -U $fpath[1]/*(.:t)
+[[ /home/russell/.arkade/bin/kubectl ]] && source <(kubectl completion zsh)
+
+# OpenFaaS
+# source <(faas-cli completion --shell zsh)
+
+# nvm use .nvmrc (automagicly)
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 

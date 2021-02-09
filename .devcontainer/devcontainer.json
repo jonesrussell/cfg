@@ -9,7 +9,7 @@
 	},
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash"
+		"terminal.integrated.shell.linux": "/bin/zsh"
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
@@ -20,7 +20,10 @@
 		"mikestead.dotenv",
 		"ms-vscode-remote.vscode-remote-extensionpack",
 		"ms-vscode.vscode-typescript-tslint-plugin",
-		"britesnow.vscode-toggle-quotes"
+		"britesnow.vscode-toggle-quotes",
+		"editorconfig.editorconfig",
+		"rbuckton.tsserver-live-reload",
+		"formulahendry.code-runner"
 	],
 	"mounts": [
 		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
